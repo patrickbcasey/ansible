@@ -25,4 +25,13 @@
     - core
 
 - name: dconf i3
-  shellore
+  shell: dconf write /org/mate/desktop/session/required-components/windowmanager "'i3'"
+  tags:
+    - install
+    - core
+
+- name: dconf i3
+  shell: dconf write /org/mate/desktop/background/show-desktop-icons "false"
+  tags:
+    - install
+    - core
