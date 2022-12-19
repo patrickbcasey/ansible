@@ -1,7 +1,7 @@
 - hosts: localhost
   vars:
     source_key: "./.ssh/id_rsa"
-    dest_key: "{{ lookup('env', 'HOME' }}/.ssh/id_rsa"
+    dest_key: {{ lookup('env', 'HOME' }}/.ssh/id_rsa
   pre_tasks:
   - name: Update APT
     become: true
@@ -13,13 +13,13 @@
     - install
     - core
   tasks:
-  - include: tasks/ssh.yml
-  - include: tasks/git-setup.yml
-  - include: tasks/core-setup
-  - include: tasks/node.yml
-  - include: tasks/npm-packages.yml
-  - include: tasks/zsh.yml
-  - include: tasks/nvim-setup.yml
-  - include: tasks/brave.yml
-  - include: tasks/dotfiles.yml
-  - includes: tasks/productivity-tools.yml
+  - import_tasks: tasks/ssh.yml
+  - import_tasks: tasks/git-setup.yml
+  - import_tasks: tasks/core-setup
+  - import_tasks: tasks/node.yml
+  - import_tasks: tasks/npm-packages.yml
+  - import_tasks: tasks/zsh.yml
+  - import_tasks: tasks/nvim-setup.yml
+  - import_tasks: tasks/brave.yml
+  - import_tasks: tasks/dotfiles.yml
+  - import_tasks: tasks/productivity-tools.yml
