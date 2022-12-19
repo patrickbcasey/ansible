@@ -3,7 +3,7 @@
     source_key: "./.ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME' }}/.ssh/id_rsa"
   pre_tasks:
-    - name: Update APT
+  - name: Update APT
     become: true
     apt:
       force_apt_get: true
