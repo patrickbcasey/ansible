@@ -38,7 +38,12 @@
   tags:
     - install
     - node
-
+- name: n export path in case
+  shell: export PATH=~/.local/n/bin/:$PATH
+  tags:
+  - install
+  - node
+  - n path
 - name: Install correct version of Node
   shell: n latest
   tags:

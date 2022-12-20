@@ -12,6 +12,7 @@ RUN apt-get update && \
 
 FROM base AS patrick
 ARG TAGS
+ENV DISPLAY=$DISPLAY
 RUN addgroup --gid 1000 patrickbcasey
 RUN adduser --gecos patrickbcasey --uid 1000 --gid 1000 --disabled-password patrickbcasey
 USER patrickbcasey 
