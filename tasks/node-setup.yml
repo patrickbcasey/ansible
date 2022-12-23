@@ -12,6 +12,12 @@
   - install
   - node
 
+- name: export path
+  shell: sudo mkdir -p /usr/local/n && chown -R $(whoami) /usr/local/n/ && sudo chown -R $(whoami) /usr/local/bin /usr/local/lib /usr/local/include /usr/local/share
+  tags:
+  - install
+  - node
+
 - name: add npmjs to path
   shell: PATH=~/.local/.npm-global/bin:$PATH
   tags:
@@ -34,13 +40,14 @@
 - name: Install N
   npm:
     name: n
-    global: yes
+    global: true
   tags:
     - install
     - node
 
 - name: Install correct version of Node
-  shell: npx n latest
+  become: yes
+  shell: n latest
   tags:
     - install
     - node

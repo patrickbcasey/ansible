@@ -6,19 +6,3 @@
   tags:
     - install
     - lsp
-
-- name: sumneko lsp
-  ansible.builtin.shell:
-    cmd: ./compile/install.sh
-    chdir: "{{ personal }}/sumneko/3rd/luamake"
-  tags:
-    - install
-    - lsp
-
-- name: built
-  ansible.builtin.shell:
-    cmd: ./3rd/luamake/luamake rebuild
-    chdir: "{{ personal }}/sumneko/"
-  tags:
-    - install
-    - lsp
