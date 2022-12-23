@@ -40,7 +40,7 @@
     - node
 
 - name: Install correct version of Node
-  shell: n 1atest
+  shell: npx n latest
   tags:
     - install
     - node
