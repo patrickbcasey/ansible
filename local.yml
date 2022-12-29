@@ -1,11 +1,11 @@
 - hosts: localhost
-  become: true
   vars:
     source_key: "./.ssh/id_rsa"
     dest_key: "{{ lookup('env', 'HOME') }}/.ssh/id_rsa"
     personal: "{{ lookup('env', 'HOME') }}/personal"
   pre_tasks:
   - name: Update Apt
+    become: yes
     apt:
       force_apt_get: true
       update_cache: true
@@ -24,3 +24,4 @@
     - import_tasks: tasks/brave.yml
     - import_tasks: tasks/dotfiles.yml
     - import_tasks: tasks/productivity-tools.yml
+    - import_tasks: tasks/rustup.yml
