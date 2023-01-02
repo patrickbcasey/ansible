@@ -26,6 +26,7 @@
 
 - name: npmjs global settings export path in case I don't have dotfiles installed
   shell: export PATH=~/.local/.npm-global/bin:$PATH
+  become_user: "{{ lookup('env', 'USER') }}"
   tags:
   - install
   - node
