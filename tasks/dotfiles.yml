@@ -1,4 +1,5 @@
 - name: Installing stow
+  become: yes
   apt: name=stow
   tags:
     - install
@@ -17,7 +18,6 @@
     - dotfiles
     - stow
 - name: Stow dotfiles
-  become: yes
   shell: cd $HOME/.dotfiles && sudo ./ubuntu
   tags:
     - install

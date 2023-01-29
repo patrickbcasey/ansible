@@ -1,9 +1,10 @@
 - name: Install ZSH
   apt: name=zsh
+  become: yes
   tags: &tags_for_zsh_tasks [ 'install', 'productivity', 'dotfiles', 'zsh' ]
     
 - name: Change shell to zsh
-  shell: chsh -s $(which zsh)
+  shell: sudo chsh -s $(which zsh) $(whoami)
   tags: *tags_for_zsh_tasks
 
 - name: Check that the somefile.conf exists
